@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-const UserService = require('../service/user-service');
+const AuthService = require('../service/auth-service');
 
-router.post('/storeUser', function (req, res) {
+router.post('/login', function (req, res) {
 
-    UserService.storeUser(req.body).then((result) => {
+    AuthService.login(req.body).then((result) => {
         res.status(201).send(result);
     }).catch((error) => {
         res.status(500).send(error);
@@ -16,7 +16,7 @@ router.post('/storeUser', function (req, res) {
 router.put('/updateUser/:id', function (req, res) {
     console.log(req.params, req.body);
 
-    UserService.updateUser(req.params, req.body).then((result) => {
+    AuthService.updateUser(req.params, req.body).then((result) => {
         res.status(201).send(result);
     }).catch((error) => {
         res.status(500).send(error);
