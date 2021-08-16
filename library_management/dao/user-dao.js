@@ -15,7 +15,11 @@ const UserDAO = {
         console.log(condition, payload + 'inside Dao');
 
         return userModel.updateOne(condition, { $set: payload });
-    }
+    },
+    isExist: (userId) => {
+        return userModel.findOne({ userId: userId })
+
+    },
 }
 
 module.exports = UserDAO;

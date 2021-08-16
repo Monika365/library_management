@@ -6,6 +6,7 @@ const AuthService = require('../service/auth-service');
 router.post('/login', function (req, res) {
 
     AuthService.login(req.body).then((result) => {
+        console.log('hi')
         res.status(201).send(result);
     }).catch((error) => {
         res.status(500).send(error);

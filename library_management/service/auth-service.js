@@ -4,10 +4,19 @@ const UserService = {
 
     login: (payload) => {
         return new Promise((resolve, reject) => {
-           console.log('payload -', payload);
+          userDAO.isExist(payload.userId).then(async (result) => {
+            console.log(result);
+            // resolve({"service got hit":result});
+            if (!result) {
+                reject("please register");
+            }
+            else{
+                resolve(result);
+            }
+            console.log("hi im authservice", payload.password, result.password);
            // statement 
         })
-
+    })
     },
     updateUser: (condition, payload) => {
 
@@ -21,6 +30,7 @@ const UserService = {
         })
 
     }
+
 }
 
 module.exports = UserService
