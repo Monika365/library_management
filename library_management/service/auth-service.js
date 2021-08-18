@@ -1,5 +1,7 @@
 const UserDAO = require('../dao/user-dao');
 const utils = require('../utils/utility');
+const bcrypt=require('bcrypt');
+const jwt = require('jsonwebtoken');
 const UserService = {
 
     login: (payload) => { 
