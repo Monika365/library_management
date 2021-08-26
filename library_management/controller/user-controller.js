@@ -12,15 +12,16 @@ router.post('/storeUser', function (req, res) {
     })
 })
 
-
-router.put('/updateUser/:id', function (req, res) {
-    console.log(req.params, req.body);
-
-    UserService.updateUser(req.params, req.body).then((result) => {
+router.post('/login', function (req, res) {
+    console.log('req payload login ', req.body);
+    UserService.login(req.body).then((result) => {
         res.status(201).send(result);
     }).catch((error) => {
         res.status(500).send(error);
     })
 })
+
+
+
 
 module.exports = router;

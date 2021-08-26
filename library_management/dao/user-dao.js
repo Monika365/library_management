@@ -18,7 +18,7 @@ const UserDAO = {
 
         return userModel.updateOne(condition, { $set: payload });
     },
-    isExist: (email) => {
+    isExist: (email) => { // register
         return userModel.findOne({ email: email })
 
     },
