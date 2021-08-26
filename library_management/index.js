@@ -8,8 +8,7 @@ const  bodyParser = require('body-parser');
 
  app.use('/users',require('./controller/user-controller'));
  app.use('/auth',require('./controller/auth-controller'));
-
-
+// 
 
 
 app.listen(port, () => {

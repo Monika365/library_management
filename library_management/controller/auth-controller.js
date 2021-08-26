@@ -14,14 +14,14 @@ router.post('/login', function (req, res) {
 })
 
 
-router.put('/updateUser/:id', function (req, res) {
-    console.log(req.params, req.body);
+// router.put('/updateUser/:id', function (req, res) {
+//     console.log(req.params, req.body);
 
-    AuthService.updateUser(req.params, req.body).then((result) => {
-        res.status(201).send(result);
-    }).catch((error) => {
-        res.status(500).send(error);
-    })
-})
+//     AuthService.updateUser(req.params, req.body).then((result) => {
+//         res.status(201).send(result);
+//     }).catch((error) => {
+//         res.status(500).send(error);
+//     })
+// })
 
 module.exports = router;

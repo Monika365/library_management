@@ -4,32 +4,20 @@ const Schema = mongoose.Schema;
 
 
 
-const UserSchema = new Schema({
-  nameOfBook: {
+const bookSchema = new Schema({
+  title: {
     type: String,
     required: true
   },
-  quantity: {
+  stocks: {
     type: Number,
     required: true
   },
-
-  StatusOfBook : {
+ author: {
     type: String,
-    required: true
-  },
-  fromDate : {
-    type: Date,
-    required: true
-  },
-  totalPenalty:{
-    type: Number,
-    required: true
-  },
-  toDate:{
-    type: Date,
     required: true
   }
+  
 });
 
-module.exports = mongoose.model('books', UserSchema);
+module.exports = mongoose.model('books', bookSchema);
