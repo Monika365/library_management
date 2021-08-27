@@ -10,6 +10,7 @@ const UserDAO = {
             email: payload.email,
             phone: payload.phone,
             role: payload.role,
+            userId:payload.userId,
             password: payload.password
         }).save();
     },

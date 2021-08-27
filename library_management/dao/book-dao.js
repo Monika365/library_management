@@ -12,7 +12,11 @@ const BookDAO = {
     },
     getByTitle: (title) => {
         return BookModel.findOne({title:title});
+    },
+    getBook:(condition)=>{
+        return BookModel.find(condition);
     }
+   
 }
 
 module.exports = BookDAO;

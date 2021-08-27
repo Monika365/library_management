@@ -1,6 +1,7 @@
 const UserDAO = require('../dao/user-dao');
 const jwt = require('jsonwebtoken');
 const constant = require('../utils/constant');
+const utils= require('../utils/utility');
 const UserService = {
 
     storeUser: (payload) => {
@@ -9,8 +10,20 @@ const UserService = {
                 if(result)
                 reject({response:'Email Already Exist'});
                 else{
-                    UserDAO.storeUser(payload).then(result=>{
-                        resolve({response:'User Register Successfully'})
+                    payload['userId'] = (payload.role==constant.ROLE.STUDENT)?utils.getId('ST',4):utils.getId('AD',4);
+
+                    UserDAO.storeUser(payload).then(async result=>{
+                        if(payload.role ==constant.ROLE.STUDENT){
+                            let details= await UserDAO.isExist(payload.email);
+                            resolve({response:{
+                                detail:{name:details.name,userId:details.userId},
+                                message:'Student registered Successfully'
+                            }})
+                        }else{  
+                            resolve({response:'User Register Successfully'})
+
+                        }
+                        
                     }).catch(error=>{
                         reject(error);
                     })

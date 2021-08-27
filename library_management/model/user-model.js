@@ -28,6 +28,10 @@ const UserSchema = new Schema({
     type: String,
     enum: ['ADMIN', 'STUDENT'],
     required: true
+  },
+  userId:{
+    type:String,
+    required:true
   }
 });
 
