@@ -17,13 +17,8 @@ const bookSchema = new Schema({
     type: String,
     required: true
   },
-  getId: {
+  bookId: {
     type: String,
-    required: true
-  },
-  role: {
-    type: String,
-    enum: ['ADMIN'],
     required: true
   }
   

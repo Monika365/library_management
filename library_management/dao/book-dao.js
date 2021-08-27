@@ -2,19 +2,17 @@ const BookModel = require('../model/book-model');
 
 
 const BookDAO = {
-    storeBook:async (payload) => {
-
-
-        return new userModel({
-            title: payload.name,
-            getId: payload.getId,
-            stocks: payload.phone,
-            role: payload.role,
-            author: payload.password
+    storeBook: (payload) => {
+        return new BookModel({
+            title: payload.title,
+            bookId: payload.bookId,
+            stocks: payload.stocks,
+            author: payload.author
         }).save();
     },
-    getByCondition: (stocks) => {
-        return userModel.findOne({stocks:stocks.length});
+    getByTitle: (title) => {
+        return BookModel.findOne({title:title});
     }
 }
+
 module.exports = BookDAO;
