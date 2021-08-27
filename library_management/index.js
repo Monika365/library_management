@@ -7,7 +7,7 @@ const  bodyParser = require('body-parser');
  require('./db');
 
  app.use('/users',require('./controller/user-controller'));
-// 
+ app.use('/books',require('./controller/book-controller'));
 
 
 app.listen(port, () => {

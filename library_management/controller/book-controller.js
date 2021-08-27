@@ -1,13 +1,25 @@
-var express = require('express')
-var router = express()
+const express = require('express')
+const router = express.Router()
 
+const BookService = require('../service/book-service');
 
-
-router.post('/createBook', function (req, res) {
-
-    UserService.storeUser(req.body).then((result) => {
+router.post('/storeBook', function(req, res){
+   
+    BookService.storeBook(req.body).then((result) => {
         res.status(201).send(result);
     }).catch((error) => {
         res.status(500).send(error);
     })
+
+
 })
+router.get('/getBook',function(req, res){
+    BookService.getBook(req.query).then((result)=>{
+        res.status(201).send(result);
+}).catch((error) => {
+        res.status(500).send(error);
+    })
+
+
+})
+module.exports = router;

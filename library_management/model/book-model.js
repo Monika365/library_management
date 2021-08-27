@@ -16,6 +16,15 @@ const bookSchema = new Schema({
  author: {
     type: String,
     required: true
+  },
+  getId: {
+    type: String,
+    required: true
+  },
+  role: {
+    type: String,
+    enum: ['ADMIN'],
+    required: true
   }
   
 });

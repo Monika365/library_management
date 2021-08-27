@@ -1,17 +1,31 @@
-const bookDAO = require('../dao/book-dao');
+const BookDAO = require('../dao/book-dao');
 const utils = require('../utils/utility');
-const bookService = {
+const BookService = {
 
-    createBook: (payload) => {
-        return new Promise((resolve, reject) => {
-            let userId = utils.getUserId(payload.role, 4);
-            payload['userId']= userId;
-            bookDAO.createBook(payload).then((result) => {
-                resolve(result);
-            }).catch(error => {
-                reject(error);
-            })
-        })
+    storeBook: (payload) => {
+        return new Promise(async(resolve, reject) => {
+            let getID = utils.getID(payload.idCode, 4);
+            payload['getID']= getID;
+            let result =  await BookDAO.getByCondition(payload.stocks);
+            if(!result)
+            reject({response:'Books cannot be created with zero stocks'});
+            
+            else{
+                UserDAO.storeUser(payload).then(result=>{
+                    resolve({response:'stocks of books are created'});
+                }).catch(error=>{
+                    reject(error);
+                
+        
+                })
+            }
+        
+       
+    })
 
-    }
 }
+}
+
+
+
+module.exports = BookService;
