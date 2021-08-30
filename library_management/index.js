@@ -16,3 +16,5 @@ app.listen(port, () => {
 });
 
 // http://localhost:3000/users/storeUser
+
+

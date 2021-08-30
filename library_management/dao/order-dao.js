@@ -13,6 +13,9 @@ const OrderDAO = {
     
     isExist:(condition)=>{
         return OrderModel.findOne(condition);
+    },
+    returnBook:(orderId,payload)=>{
+        return OrderModel.updateOne({orderId:orderId}, {$set:payload});
     }
 }
 

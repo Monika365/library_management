@@ -57,6 +57,16 @@ const UserService = {
             
         })
         
+    },
+    getUserDetail:(email)=>{
+        return new Promise (async (resolve, reject)=>{
+            UserDAO.isExist(email).then(result=>{
+                resolve(result);
+            }).catch(error=>{
+                reject(error);
+            })
+        })
+
     }
     
 }

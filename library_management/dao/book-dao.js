@@ -15,6 +15,9 @@ const BookDAO = {
     },
     getBook:(condition)=>{
         return BookModel.find(condition);
+    },
+    updateStock:(bookId, value)=>{
+        return BookModel.updateOne({bookId:bookId}, {$inc:{stocks:value}});
     }
    
 }
