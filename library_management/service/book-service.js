@@ -5,7 +5,7 @@ const BookService = {
     storeBook: (payload) => {
         return new Promise(async(resolve, reject) => {
             let isExist = await BookDAO.getBook({title:payload.title, author:payload.author});
-            if(isExist){
+            if(isExist.length>0){
                 console.log('isExist book', isExist);
                 return reject({message:"Book Already Exist", detail:{title:isExist[0].title,bookId:isExist[0].bookId}});
             }           

@@ -14,11 +14,11 @@ const UserDAO = {
             password: payload.password
         }).save();
     },
-    updateUser: (condition, payload) => {
-        console.log(condition, payload + 'inside Dao');
+    // updateUser: (condition, payload) => {
+    //     console.log(condition, payload + 'inside Dao');
 
-        return userModel.updateOne(condition, { $set: payload });
-    },
+    //     return userModel.updateOne(condition, { $set: payload });
+    // },
     isExist: (email) => { // register
         return userModel.findOne({ email: email })
 
